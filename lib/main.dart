@@ -8,8 +8,14 @@ import 'package:testeui/screen/productlist.dart';
 import 'package:testeui/screen/profile.dart';
 import 'package:testeui/screen/signup.dart';
 
-void main() {
+import 'api/remotedata/remoteapi.dart';
+
+void main() async {
+  var respone = await   Authentication().Login();
+  print(respone.token);
   runApp(
+
+
     DevicePreview(
       enabled: true,
       tools: const [
