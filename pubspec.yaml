@@ -36,7 +36,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   device_preview: ^1.0.0
   carousel_slider: ^4.0.0
-  dio:
+  dio: ^4.0.4
+  firebase_auth:
+  firebase_core:
 
 dev_dependencies:
   flutter_test:

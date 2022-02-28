@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:testeui/validator.dart';
 
+import '../api/remotedata/apiservice.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
@@ -14,6 +16,24 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
    final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+
+  callLoginApi() {
+    final service = ApiServices();
+
+    service.apiCallLogin(
+      {
+        "email": _emailController.text,
+        "password": _passwordController.text,
+      },
+    ).then((value){
+
+        print(value.token!);
+        //push
+    });
+
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -149,6 +169,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             onTap: () {
                               if (_formkey.currentState!.validate()) {
                                 print("Validated");
+                                callLoginApi();
                                 Navigator.of(context).pushNamed('/profile');
                               } else {
                                 print("Not Validated");
@@ -184,6 +205,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               TextButton(
                                 onPressed: (){
+
                                   Navigator.of(context).pushNamed('/signup');
                                 },
                                 child: const Text(

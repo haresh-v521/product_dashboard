@@ -1,6 +1,9 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:testeui/screen/demoapi.dart';
+import 'package:testeui/screen/demojsonplaceholder.dart';
 import 'package:testeui/screen/editprofile.dart';
+import 'package:testeui/screen/fakestoreapi.dart';
 import 'package:testeui/screen/homepage.dart';
 import 'package:testeui/screen/loginscreen.dart';
 import 'package:testeui/screen/productdetailes.dart';
@@ -8,14 +11,11 @@ import 'package:testeui/screen/productlist.dart';
 import 'package:testeui/screen/profile.dart';
 import 'package:testeui/screen/signup.dart';
 
-import 'api/remotedata/remoteapi.dart';
+import 'api/models/DemoApi.dart';
 
-void main() async {
-  var respone = await   Authentication().Login();
-  print(respone.token);
+
+void main()  {
   runApp(
-
-
     DevicePreview(
       enabled: true,
       tools: const [
@@ -38,7 +38,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.grey,
       ),
       routes: {
-        '/': (context) => const HomePage(),
+        '/': (context) => const FakeStoreApi(),
+        // '/': (context) => const UserJsonPlace(),
+        // '/': (context) => const DemoApii(),
+        // '/': (context) => const HomePage(),
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignUPScreen(),
         '/profile': (context) => const Profile(),
