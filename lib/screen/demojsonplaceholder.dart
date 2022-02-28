@@ -167,6 +167,7 @@ class _UserJsonPlaceState extends State<UserJsonPlace> {
                             ),
                             const Text(
                               "Zipcode",
+
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 25),
                             ),
