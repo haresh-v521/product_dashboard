@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:intl/intl.dart';
-
+import '../firebase/auth/allauthentication/authentication.dart';
 import '../validator.dart';
 
 class SignUPScreen extends StatefulWidget {
@@ -12,7 +14,10 @@ class SignUPScreen extends StatefulWidget {
 }
 
 class _SignUPScreenState extends State<SignUPScreen> {
+
+
   //textform validate
+
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -20,11 +25,14 @@ class _SignUPScreenState extends State<SignUPScreen> {
   final TextEditingController _confirmpassController = TextEditingController();
   final TextEditingController _dateController = TextEditingController();
 
+
   //dropdownlist
+
   String dropdownvalue = "";
    List<String> items = ['Male', 'Female'];
 
-  //datepicker
+
+   //datepicker
 
   Future<void> opendatepicker(BuildContext context) async {
     final DateTime? d = await showDatePicker(
@@ -320,8 +328,11 @@ class _SignUPScreenState extends State<SignUPScreen> {
                                 width: 10,
                               ),
                               TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pushNamed('/login');
+                                // onPressed: () {
+                                //   Navigator.of(context).pushNamed('/login');
+                                // },
+                                onPressed: (){
+                                  AuthClass().signUp(email: _emailController.text, password: _passwordController.text);
                                 },
                                 child: const Text(
                                   "Login",

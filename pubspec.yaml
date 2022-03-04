@@ -37,8 +37,16 @@ dependencies:
   device_preview: ^1.0.0
   carousel_slider: ^4.0.0
   dio: ^4.0.4
+  http:
   firebase_auth:
   firebase_core:
+  firebase_messaging:
+  flutter_local_notifications:
+  google_sign_in:
+  flutter_login_facebook: ^1.4.1
+  flutter_facebook_auth: ^4.1.1
+  permission_handler: ^9.2.0
+  cloud_firestore: ^3.1.10
 
 dev_dependencies:
   flutter_test:
